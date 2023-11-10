@@ -24,10 +24,12 @@ evals<-read.csv("data/evals.csv", row.names=1)
 1.  Visualize the distribution of `score` in the dataframe `evals`.
 
 ```{r viz-score}
-# add code here
+ggplot(data = evals, mapping = aes(x = score)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept = mean(score)), colour = "red", size = 2)
 ```
 
-*Add your other details and narratives here.*
+*Based on the fact that the histogram is left/negatively skewed, this means that overall people are giving professors a high score between 4 and 5. The mean score is roughly 4.1 which is shown through the red vertical line.*
 
 2.  Visualize and describe the relationship between `score` and `bty_avg` using `geom_point()` to represent the data. 
 
